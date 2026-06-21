@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Aura Apparel — Clothing</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<header class="site-header">
+		<div class="container header-inner">
+			<div class="brand">
+				<h1 class="logo">Aura Apparel</h1>
+				<p class="tag">Timeless looks. Everyday comfort.</p>
+			</div>
+
+			<nav>
+				<ul class="nav-links" id="navLinks">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#collections">Collections</a></li>
+					<li><a href="#shop">Shop</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+			<div class="actions">
+				<button class="cart-btn" id="cartBtn">🛒 <span id="cartCount">0</span></button>
+				<button class="menu-btn" id="menuBtn">☰</button>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero" id="home">
+			<div class="container hero-grid">
+				<div class="hero-text">
+					<p class="eyebrow">New Season</p>
+					<h2>Fresh styles for every day.</h2>
+					<p class="lead">Discover the latest collection of comfortable, sustainable clothing — curated for modern living.</p>
+					<div class="hero-cta">
+						<a class="btn primary" href="#shop">Shop Now</a>
+						<a class="btn ghost" href="#collections">View Collections</a>
+					</div>
+				</div>
+				<div class="hero-image">
+					<img src="https://picsum.photos/800/600?clothes" alt="Clothing hero">
+				</div>
+			</div>
+		</section>
+
+		<section class="collections" id="collections">
+			<div class="container section-head">
+				<h3>Top Collections</h3>
+				<p>Handpicked ranges for work, weekend and everything between.</p>
+			</div>
+
+			<div class="container card-grid">
+				<article class="card">
+					<img src="https://picsum.photos/400/300?outfit1" alt="Casual collection">
+					<h4>Casual Wear</h4>
+					<p>Relaxed fits and easy fabrics.</p>
+				</article>
+				<article class="card">
+					<img src="https://picsum.photos/400/300?outfit2" alt="Formal collection">
+					<h4>Smart Casual</h4>
+					<p>Polished pieces for everyday elegance.</p>
+				</article>
+				<article class="card">
+					<img src="https://picsum.photos/400/300?outfit3" alt="Active collection">
+					<h4>Active & Lounge</h4>
+					<p>Comfort that moves with you.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="products" id="shop">
+			<div class="container section-head">
+				<h3>Featured Picks</h3>
+				<p>Popular items picked by our stylists.</p>
+			</div>
+
+			<div class="container product-grid">
+				<div class="product">
+					<img src="https://picsum.photos/400/400?1" alt="Classic Shirt">
+					<h4>Classic Shirt</h4>
+					<p class="price">₹899</p>
+					<button class="add" onclick="addToCart('Classic Shirt')">Add to cart</button>
+				</div>
+
+				<div class="product">
+					<img src="https://picsum.photos/400/400?2" alt="Summer Dress">
+					<h4>Summer Dress</h4>
+					<p class="price">₹1299</p>
+					<button class="add" onclick="addToCart('Summer Dress')">Add to cart</button>
+				</div>
+
+				<div class="product">
+					<img src="https://picsum.photos/400/400?3" alt="Denim Jacket">
+					<h4>Denim Jacket</h4>
+					<p class="price">₹1999</p>
+					<button class="add" onclick="addToCart('Denim Jacket')">Add to cart</button>
+				</div>
+
+				<div class="product">
+					<img src="https://picsum.photos/400/400?4" alt="Chino Pants">
+					<h4>Chino Pants</h4>
+					<p class="price">₹1099</p>
+					<button class="add" onclick="addToCart('Chino Pants')">Add to cart</button>
+				</div>
+			</div>
+		</section>
+
+		<section class="newsletter">
+			<div class="container newsletter-inner">
+				<div>
+					<h4>Get 10% off</h4>
+					<p>Subscribe for style tips and early access to sales.</p>
+				</div>
+				<form id="newsletterForm">
+					<input id="newsletterEmail" type="email" placeholder="Enter your email" required>
+					<button class="btn primary" type="submit">Subscribe</button>
+				</form>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<div>
+				<h5>Aura Apparel</h5>
+				<p>Style for the everyday.</p>
+			</div>
+			<div>
+				<p>Contact: hello@auraapparel.com</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="script.js"></script>
+</body>
+</html>
+

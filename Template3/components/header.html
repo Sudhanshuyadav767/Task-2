@@ -1,0 +1,36 @@
+<!-- 
+  HEADER COMPONENT
+  =========================================================================
+  Purpose: Sticky navigation header with logo, navigation links, and cart button
+  Classes: topbar, header-inner, logo, nav-links, header-actions
+  Responsive: Nav hidden on mobile, hamburger menu shown
+  Styling: header.css
+  ========================================================================= -->
+
+<header class="topbar">
+  <div class="container header-inner">
+    <a class="logo" href="#hero">
+      <!-- Brand logo with gradient text -->
+      <span>Sneaker Hub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#brands">Brands</a>
+      <a href="#categories">Categories</a>
+      <a href="#trending">Trending</a>
+      <a href="#more">More</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-secondary" href="#trending">Shop Now</a>
+      <button class="icon-btn" aria-label="Open cart">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-badge">0</span>
+      </button>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>

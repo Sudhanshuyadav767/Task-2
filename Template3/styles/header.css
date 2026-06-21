@@ -1,0 +1,268 @@
+/* ==========================================================================
+   header.css - HEADER & NAVIGATION STYLES
+   ========================================================================== */
+
+/* 1. TOPBAR GLASS CONTAINER */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 2px solid rgba(29, 99, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(29, 99, 255, 0.04);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s ease;
+}
+
+.topbar.topbar--hidden {
+  transform: translateY(-100%);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+}
+
+/* 2. LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #0f172a 40%, #1d63ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.03);
+}
+
+.logo-icon {
+  filter: drop-shadow(0 2px 8px rgba(29, 99, 255, 0.25));
+}
+
+.logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(29, 99, 255, 0.15));
+  transition: transform 0.3s ease;
+}
+
+/* 3. CAPSULE NAVIGATION BAR */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(29, 99, 255, 0.03);
+  padding: 0.35rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(29, 99, 255, 0.05);
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 0.45rem 1.1rem;
+  border-radius: 99px;
+  display: inline-block;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  background: rgba(29, 99, 255, 0.06);
+}
+
+.nav-links a.active {
+  color: #ffffff;
+  background: var(--primary-gradient);
+  box-shadow: 0 4px 15px rgba(29, 99, 255, 0.25);
+}
+
+/* 4. ACTIONS (Cart, Profile, etc) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(29, 99, 255, 0.04);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.icon-btn .cart-icon {
+  font-size: 1.15rem;
+}
+
+.icon-btn:hover {
+  background: rgba(29, 99, 255, 0.08);
+  border-color: rgba(29, 99, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: #ff1d63;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--surface);
+  box-shadow: 0 0 10px rgba(255, 29, 99, 0.3);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.icon-btn:hover .cart-badge {
+  transform: scale(1.15);
+}
+
+/* 5. BURGER TOGGLE SPANS */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  cursor: pointer;
+  z-index: 110;
+  border: none;
+  padding: 0;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2.2px;
+  background-color: var(--text);
+  border-radius: 99px;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* 6. RESPONSIVE NAVIGATION DRAWER FOR MOBILE */
+@media (max-width: 767px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 220px; /* Highly compact mobile drawer width */
+    height: 100vh;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2.5rem 1.25rem; /* Snug padding */
+    gap: 1.2rem; /* Tight gap */
+    box-shadow: -10px 0 30px rgba(29, 99, 255, 0.08);
+    border-left: 1px solid rgba(29, 99, 255, 0.08);
+    transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 105;
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 0;
+    border: none;
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  .nav-links a {
+    font-size: 0.95rem; /* Compact font size */
+    font-weight: 700;
+    width: 100%;
+    color: var(--text);
+    padding: 0.4rem 0.8rem; /* Snug padding */
+    border-radius: 8px;
+  }
+  
+  .nav-links a:hover {
+    color: var(--accent);
+    background: rgba(29, 99, 255, 0.05);
+  }
+
+  .nav-links a.active {
+    color: #ffffff;
+    background: var(--primary-gradient);
+    box-shadow: 0 4px 12px rgba(29, 99, 255, 0.2);
+  }
+  
+  .header-inner {
+    flex-direction: row;
+    padding: 0.6rem 0; /* Tight topbar padding */
+  }
+
+  .logo {
+    font-size: 1.02rem; /* Smaller logo font on mobile */
+  }
+
+  .logo-icon {
+    width: 28px; /* Compact logo icon on mobile */
+    height: 28px;
+  }
+
+  .logo-img {
+    height: 30px;
+  }
+
+  .header-actions {
+    gap: 0.6rem; /* Smaller gap */
+  }
+
+  .icon-btn {
+    width: 34px; /* Smaller icon button */
+    height: 34px;
+  }
+
+  .icon-btn .cart-icon {
+    font-size: 0.85rem;
+  }
+}

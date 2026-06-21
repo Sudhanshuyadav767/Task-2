@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenGrocer</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo">GreenGrocer</div>
+        <span>Fresh groceries, delivered daily</span>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#products">Groceries</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="#products">Shop Now</a>
+        <button class="cart-btn" id="cartBtn" type="button">
+          <span class="cart-icon">🛒</span>
+          <span id="cartCount">0</span>
+        </button>
+        <div class="menu-btn" id="menuBtn">☰</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Farm fresh every day</span>
+        <h1>Order fresh groceries and kitchen essentials with ease.</h1>
+        <p>From fruits and veggies to pantry staples, everything you need in one green-friendly store.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#products">Shop Fresh</a>
+          <a class="btn btn-light" href="#categories">Explore Categories</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://picsum.photos/700/520?grocery" alt="Fresh grocery delivery">
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container section-title">
+      <h2>Why choose GreenGrocer?</h2>
+      <p>The easiest way to fill your kitchen with farm-fresh groceries.</p>
+    </div>
+
+    <div class="container feature-grid">
+      <div class="feature-card">
+        <h3>Fresh Produce</h3>
+        <p>Daily-picked fruits and vegetables delivered fresh to your door.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Quick Delivery</h3>
+        <p>Get groceries in hours with fast local delivery across the city.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Trusted Quality</h3>
+        <p>Quality checked products and trusted grocery brands every time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories" id="categories">
+    <div class="container section-title">
+      <h2>Shop by Category</h2>
+      <p>Find everything you need for your kitchen and home.</p>
+    </div>
+
+    <div class="container category-container">
+      <div class="category-card">Fruits</div>
+      <div class="category-card">Vegetables</div>
+      <div class="category-card">Dairy</div>
+      <div class="category-card">Bakery</div>
+      <div class="category-card">Beverages</div>
+      <div class="category-card">Pantry</div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="products" id="products">
+    <div class="container section-title">
+      <h2>Popular Grocery Picks</h2>
+      <p>Fresh essentials and pantry favorites ready to add to your cart.</p>
+    </div>
+
+    <div class="container product-container">
+      <div class="product-card">
+        <img src="https://picsum.photos/300?fruit" alt="Fresh apples">
+        <h3>Fresh Apples</h3>
+        <p class="price">₹249 / kg</p>
+        <button onclick="addToCart('Fresh Apples')">Add To Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://picsum.photos/300?vegetable" alt="Organic vegetables">
+        <h3>Mixed Vegetables</h3>
+        <p class="price">₹199 / pack</p>
+        <button onclick="addToCart('Mixed Vegetables')">Add To Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://picsum.photos/300?dairy" alt="Milk bottles">
+        <h3>Fresh Milk</h3>
+        <p class="price">₹79 / litre</p>
+        <button onclick="addToCart('Fresh Milk')">Add To Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://picsum.photos/300?bread" alt="Bread loaf">
+        <h3>Whole Grain Bread</h3>
+        <p class="price">₹99</p>
+        <button onclick="addToCart('Whole Grain Bread')">Add To Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <div class="container section-title">
+      <h2>Customer Reviews</h2>
+      <p>Happy customers love the freshness and convenience.</p>
+    </div>
+
+    <div class="container testimonial-grid">
+      <div class="testimonial-card">
+        <p>“I got fresh fruits today and they were perfect. Delivery was speedy and the packaging was great.”</p>
+        <span>— Meera, Pune</span>
+      </div>
+      <div class="testimonial-card">
+        <p>“My weekly grocery shopping is so easy now. Everything arrives fresh and on time.”</p>
+        <span>— Arjun, Bangalore</span>
+      </div>
+      <div class="testimonial-card">
+        <p>“Great selection of pantry staples and the cart count helps me keep track of my items.”</p>
+        <span>— Nina, Delhi</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container newsletter-grid">
+      <div>
+        <h2>Stay updated with fresh offers</h2>
+        <p>Subscribe for weekly discounts, new arrivals, and grocery deals.</p>
+      </div>
+      <form id="newsletterForm">
+        <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div>
+        <h3>GreenGrocer</h3>
+        <p>Fresh groceries, healthy meals, and easy delivery for every home.</p>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <a href="#hero">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Groceries</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Email: hello@greengrocer.com</p>
+        <p>Phone: +91 98765 43210</p>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 GreenGrocer. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html> 

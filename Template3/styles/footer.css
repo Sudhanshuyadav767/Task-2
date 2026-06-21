@@ -1,0 +1,467 @@
+/* ==========================================================================
+   footer.css - SERVICE PERKS, NEWSLETTER & FOOTER
+   ========================================================================== */
+
+/* 1. CONTENT SERVICE GRID */
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.content-item {
+  background: linear-gradient(135deg, #ffffff 0%, #f4f8ff 100%);
+  border: 1px solid var(--border);
+  border-radius: 2.2rem;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(29, 99, 255, 0.02);
+  backdrop-filter: blur(10px);
+}
+
+.content-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--primary-gradient);
+}
+
+.content-item h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.content-item p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* 2. PERKS & TRUST BADGES */
+.perks {
+  padding: 4.5rem 0;
+}
+
+.perks-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.perks-grid article {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 1.8rem;
+  padding: 2.2rem;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(29, 99, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+.perks-grid article:hover {
+  background: rgba(29, 99, 255, 0.02);
+  transform: translateY(-4px);
+  border-color: rgba(29, 99, 255, 0.2);
+}
+
+.perk-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: rgba(29, 99, 255, 0.06);
+  border: 1px solid rgba(29, 99, 255, 0.12);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.5rem;
+  transition: transform 0.4s ease;
+}
+
+.perks-grid article:hover .perk-icon-wrapper {
+  transform: scale(1.1) rotate(-5deg);
+  background: var(--primary-gradient);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 5px 15px rgba(29, 99, 255, 0.25);
+}
+
+.perks-grid h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+}
+
+.perks-grid p {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* 3. REVIEW BANNER SECTION */
+.review-banner {
+  background: radial-gradient(circle at right, rgba(29, 99, 255, 0.06) 0%, transparent 60%), #ecf3ff;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 5rem 0;
+}
+
+.review-banner-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.review-banner-grid h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  font-weight: 800;
+  max-width: 700px;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+/* 4. NEWSLETTER FORM CARD */
+.newsletter {
+  padding-bottom: 6rem;
+}
+
+.newsletter-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  border: 1px solid rgba(29, 99, 255, 0.1);
+  border-radius: 2.5rem;
+  padding: 4rem;
+  background: linear-gradient(135deg, #ffffff 0%, #edf3ff 100%);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 30px 60px rgba(29, 99, 255, 0.04);
+}
+
+.newsletter-card h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.newsletter-form input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid rgba(29, 99, 255, 0.12);
+  border-radius: 999px;
+  padding: 1.1rem 1.6rem;
+  background: #ffffff;
+  color: var(--text);
+  box-shadow: inset 0 2px 4px rgba(29, 99, 255, 0.02);
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.newsletter-form input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(29, 99, 255, 0.15);
+}
+
+.newsletter-form input::placeholder {
+  color: rgba(100, 116, 139, 0.6);
+}
+
+/* 5. FOOTER STYLES */
+.footer {
+  background-color: #0b1329;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 5rem 0 3rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.footer h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: white;
+}
+
+.footer-brand .logo {
+  margin-bottom: 1.2rem;
+  background: linear-gradient(135deg, #ffffff 40%, #1d63ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer p {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 1.5rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  width: max-content;
+}
+
+.footer-links a:hover {
+  color: white;
+  transform: translateX(4px);
+}
+
+.social-row {
+  display: flex;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  background: var(--primary-gradient);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(29, 99, 255, 0.3);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 4rem;
+  padding-top: 2rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Responsive Overrides (Mobile App Layout)
+   ========================================================================== */
+@media (max-width: 991px) {
+  .content-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .content-item {
+    padding: 2rem;
+    border-radius: 1.8rem;
+  }
+
+  .perks {
+    padding: 3rem 0;
+  }
+
+  .perks-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .perks-grid article {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .review-banner {
+    padding: 3.5rem 0;
+  }
+
+  .review-banner-grid {
+    gap: 2rem;
+  }
+
+  .newsletter-card {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 3rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 767px) {
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .content-item {
+    padding: 1.2rem;
+    border-radius: 1.25rem;
+  }
+
+  .content-item h2 {
+    font-size: 1.05rem; /* Smaller font on mobile */
+    margin-bottom: 0.4rem;
+  }
+
+  .content-item p {
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .perks {
+    padding: 1.5rem 0;
+  }
+
+  .perks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Keep 2 columns on mobile! Looks much cleaner than 1 big column */
+    gap: 0.8rem;
+  }
+
+  .perks-grid article {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .perk-icon-wrapper {
+    width: 38px; /* Smaller perk icons */
+    height: 38px;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+  }
+
+  .perks-grid h3 {
+    font-size: 0.88rem; /* Smaller perk titles */
+    margin-bottom: 0.15rem;
+  }
+
+  .perks-grid p {
+    font-size: 0.7rem;
+    line-height: 1.35;
+  }
+
+  .review-banner {
+    padding: 2rem 0;
+  }
+
+  .review-banner-grid {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .review-banner-grid h2 {
+    font-size: clamp(1.1rem, 5vw, 1.35rem); /* Smaller header */
+    line-height: 1.25;
+  }
+
+  .newsletter {
+    padding-bottom: 2.5rem;
+  }
+
+  .newsletter-card {
+    padding: 1.25rem; /* Compact card padding */
+    border-radius: 1.5rem;
+    gap: 1.2rem;
+  }
+
+  .newsletter-card h2 {
+    font-size: 1.15rem; /* Smaller header */
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .newsletter-form input {
+    padding: 0.7rem 1.1rem;
+    font-size: 0.82rem; /* Compact inputs */
+  }
+
+  .footer {
+    padding: 2.5rem 0 1.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-brand {
+    grid-column: span 1;
+  }
+
+  .footer-brand .logo {
+    margin-bottom: 0.6rem;
+  }
+
+  .footer h3 {
+    font-size: 0.98rem; /* Smaller header */
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-links {
+    gap: 0.4rem 0.8rem;
+  }
+
+  .footer-links a {
+    font-size: 0.78rem;
+  }
+
+  .social-row {
+    margin-top: 0.5rem;
+  }
+
+  .social-btn {
+    width: 32px; /* Smaller social buttons */
+    height: 32px;
+  }
+
+  .footer-bottom {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    font-size: 0.72rem;
+  }
+}

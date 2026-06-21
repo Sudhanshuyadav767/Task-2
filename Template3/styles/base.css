@@ -1,0 +1,262 @@
+/* ==========================================================================
+   base.css - GLOBAL STYLES & TOKENS
+   ========================================================================== */
+
+/* 1. DESIGN TOKENS & CSS VARIABLES */
+:root {
+  color-scheme: light;
+  
+  /* Color Palette - White & Blue Theme */
+  --bg: #f6f9ff;
+  --surface: #ffffff;
+  --surface-soft: #edf3ff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #1d63ff;
+  --accent-soft: rgba(29, 99, 255, 0.08);
+  --border: rgba(29, 99, 255, 0.08);
+  
+  /* Gradients */
+  --primary-gradient: linear-gradient(135deg, #1d63ff 0%, #00b0ff 100%);
+  --secondary-gradient: linear-gradient(135deg, #f8fafc 0%, #e8f0fe 100%);
+  --blue-gradient: linear-gradient(135deg, #0052d4 0%, #4364f7 100%);
+  --gold-gradient: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+  
+  /* Glowing Shadows */
+  --glow-orange: rgba(29, 99, 255, 0.15);
+  --glow-blue: rgba(0, 176, 255, 0.15);
+  
+  /* Typography */
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Poppins", sans-serif;
+}
+
+/* 2. RESET & BASE ELEMENTS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  outline: none;
+  border: none;
+}
+
+/* Background Aurora Orbs */
+body::before {
+  content: '';
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, rgba(29, 99, 255, 0.08) 0%, transparent 70%);
+  z-index: -2;
+  pointer-events: none;
+  filter: blur(80px);
+  animation: floatGlow 18s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -10%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(0, 176, 255, 0.06) 0%, transparent 70%);
+  z-index: -2;
+  pointer-events: none;
+  filter: blur(80px);
+  animation: floatGlow2 24s ease-in-out infinite alternate-reverse;
+}
+
+/* 3. UTILITY CLASSES & CONTAINER */
+.container {
+  width: min(1200px, calc(100% - 2.5rem));
+  margin: 0 auto;
+}
+
+.section-block {
+  padding: 3.5rem 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-header h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  margin: 0.8rem auto 0;
+  max-width: 800px;
+  background: linear-gradient(135deg, #0f172a 60%, #1d63ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(29, 99, 255, 0.15);
+  border-radius: 99px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Scroll Fade-In Anim Class */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.scroll-animate.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Core Buttons */
+.btn {
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.8rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  color: white;
+  box-shadow: 0 8px 24px rgba(29, 99, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #00b0ff 0%, #1d63ff 100%);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(29, 99, 255, 0.35);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-secondary {
+  background: rgba(29, 99, 255, 0.03);
+  border: 1.5px solid rgba(29, 99, 255, 0.18);
+  color: var(--accent);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-gradient);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(29, 99, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* 4. CORE KEYFRAME ANIMATIONS */
+@keyframes floatGlow {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(8%, 10%) scale(1.15); }
+}
+
+@keyframes floatGlow2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-8%, -10%) scale(1.2); }
+}
+
+@keyframes floatAnim {
+  0% { transform: translateY(0) rotate(-2deg); }
+  100% { transform: translateY(-14px) rotate(2deg); }
+}
+
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* ==========================================================================
+   5. RESPONSIVE UTILITIES (Mobile Sizing Fixes)
+   ========================================================================== */
+@media (max-width: 991px) {
+  .section-block {
+    padding: 2.5rem 0;
+  }
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: min(1200px, calc(100% - 1.5rem)); /* tighter margins on mobile */
+  }
+  .section-block {
+    padding: 1.2rem 0;
+  }
+  .section-header {
+    margin-bottom: 1.2rem;
+  }
+  .section-header h2 {
+    font-size: clamp(1.15rem, 5vw, 1.4rem);
+  }
+  .btn {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.8rem;
+  }
+}

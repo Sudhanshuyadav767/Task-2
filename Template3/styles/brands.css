@@ -1,0 +1,196 @@
+/* ==========================================================================
+   brands.css - BRAND MARQUEE & FEATURED BRANDS
+   ========================================================================== */
+
+/* 1. INFINITE BRAND SCROLLING MARQUEE */
+.brand-marquee {
+  overflow: hidden;
+  padding: .2rem 0;
+  position: relative;
+  background: rgba(29, 99, 255, 0.02);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Gradients covering edges */
+.brand-marquee::before,
+.brand-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.brand-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg) 0%, transparent 100%);
+}
+
+.brand-marquee::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--bg) 0%, transparent 100%);
+}
+
+.brand-marquee-track {
+  display: flex;
+  gap: 2.5rem;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.brand-logo {
+  height: 64px;
+  width: auto;
+  min-width: 140px;
+  border-radius: 16px;
+  padding: 0.85rem 1.8rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.5);
+  transition: all 0.3s ease;
+}
+
+.brand-logo:hover {
+  filter: grayscale(0%) opacity(1);
+  background: #ffffff;
+  border-color: rgba(29, 99, 255, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(29, 99, 255, 0.08);
+}
+
+/* 2. FEATURED BRANDS SPOTLIGHT SECTION */
+.brand-spotlight .brand-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.brand-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(29, 99, 255, 0.02);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(29, 99, 255, 0.25);
+  box-shadow: 0 25px 50px rgba(29, 99, 255, 0.08);
+}
+
+.brand-card-img-wrapper {
+  overflow: hidden;
+  height: 250px;
+  position: relative;
+}
+
+.brand-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.brand-card:hover img {
+  transform: scale(1.08);
+}
+
+.brand-card-img-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, var(--surface) 0%, transparent 40%);
+}
+
+.brand-copy {
+  padding: 1.8rem 2.2rem 2.2rem;
+  background-color: var(--surface);
+  flex-grow: 1;
+}
+
+.brand-copy h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+}
+
+.brand-copy p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Responsive Overrides (Mobile App Layout)
+   ========================================================================== */
+@media (max-width: 991px) {
+  .brand-marquee {
+    padding: 1.5rem 0; /* Compact marquee padding */
+  }
+
+  .brand-logo {
+    height: 52px; /* Smaller marquee logo */
+    min-width: 110px;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .brand-spotlight .brand-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .brand-card-img-wrapper {
+    height: 200px; /* Smaller brand card image */
+  }
+
+  .brand-copy {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .brand-spotlight .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Keep 2 columns on mobile! Looks much cleaner than 1 big column */
+    gap: 0.8rem;
+  }
+
+  .brand-card {
+    border-radius: 1.25rem;
+  }
+
+  .brand-card-img-wrapper {
+    height: 110px; /* Compact image height */
+  }
+
+  .brand-copy {
+    padding: 0.8rem;
+  }
+
+  .brand-copy h3 {
+    font-size: 0.95rem; /* Smaller font */
+    margin-bottom: 0.25rem;
+  }
+
+  .brand-copy p {
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+
+  .brand-logo {
+    height: 32px; /* Extra compact logo height */
+    min-width: 80px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+  }
+}
