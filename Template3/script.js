@@ -92,30 +92,41 @@ function initHeaderScroll() {
   if (!header) return;
 
   let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+  const scrollThreshold = 6;
+  let ticking = false;
 
-  window.addEventListener('scroll', () => {
+  const updateHeader = () => {
     const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
-
-    // Avoid running on bounce/elastic scroll (negative values or values larger than max scroll)
+    const delta = currentScrollY - lastScrollY;
     const maxScrollable = document.documentElement.scrollHeight - window.innerHeight;
-    if (currentScrollY < 0 || currentScrollY > maxScrollable) {
+
+    if (currentScrollY <= 20 || currentScrollY < 0 || currentScrollY > maxScrollable) {
+      header.classList.remove('topbar--hidden');
+      lastScrollY = currentScrollY;
+      ticking = false;
       return;
     }
 
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      // Scroll down: hide
-      header.classList.add('topbar--hidden');
-    } else if (currentScrollY < lastScrollY) {
-      // Scroll up: show
-      header.classList.remove('topbar--hidden');
+    if (Math.abs(delta) < scrollThreshold) {
+      ticking = false;
+      return;
     }
 
-    // Always show when near the very top of the page
-    if (currentScrollY <= 20) {
+    if (delta > 0) {
+      header.classList.add('topbar--hidden');
+    } else if (delta < 0) {
       header.classList.remove('topbar--hidden');
     }
 
     lastScrollY = currentScrollY;
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
   }, { passive: true });
 }
 
