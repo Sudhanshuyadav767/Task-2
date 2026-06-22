@@ -52,7 +52,7 @@
 }
 
 .logo-img {
-  height: 38px;
+  height: 46px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(29, 99, 255, 0.15));
@@ -250,7 +250,7 @@
   }
 
   .logo-img {
-    height: 30px;
+    height: 36px;
   }
 
   .header-actions {
@@ -260,6 +260,15 @@
   .icon-btn {
     width: 34px; /* Smaller icon button */
     height: 34px;
+  }
+
+  /* SVG cart color (blue theme) */
+  .icon-btn svg {
+    width: 18px;
+    height: 18px;
+    color: var(--accent);
+    stroke: var(--accent);
+    fill: var(--accent);
   }
 
   .icon-btn .cart-icon {

@@ -260,3 +260,33 @@ body::after {
     font-size: 0.8rem;
   }
 }
+
+/* Extra small screen tweaks for better touch targets and spacing */
+@media (max-width: 420px) {
+  .container {
+    width: calc(100% - 1rem);
+    padding: 0 0.5rem;
+  }
+
+  /* Make primary tap targets larger and easier to hit */
+  .btn {
+    padding: 0.9rem 1.25rem;
+    font-size: 0.95rem;
+    min-height: 44px; /* mobile tappable size guideline */
+  }
+
+  .icon-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* Newsletter form inputs should be large enough on small screens */
+  .newsletter-form input[type="email"] {
+    padding: 0.85rem 0.9rem;
+    font-size: 0.95rem;
+    min-width: 0;
+  }
+
+  /* Improve readability on very small devices */
+  body { font-size: 15px; }
+}

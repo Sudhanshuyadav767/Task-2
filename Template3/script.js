@@ -73,6 +73,19 @@ function initCartCounter() {
   }
 }
 
+// Ensure images are lazy-loaded and decoded async for faster mobile performance
+function initImageLoading() {
+  const imgs = document.querySelectorAll('img');
+  imgs.forEach(img => {
+    try {
+      if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+      if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
+    } catch (e) {
+      // ignore read-only attributes in some environments
+    }
+  });
+}
+
 // Show/hide navbar on scroll up/down (highly robust, mobile-friendly detection)
 function initHeaderScroll() {
   const header = document.querySelector('.topbar');
@@ -187,6 +200,7 @@ function init() {
   initCartCounter();
   initHeaderScroll();
   initMobileMenu();
+  initImageLoading();
   initScrollSpy();
 }
 
